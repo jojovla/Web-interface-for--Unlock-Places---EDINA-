@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+      <!-- //////////////////// -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+      <link href="css/leaflet.draw.css" rel="stylesheet">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/unlock1.css" rel="stylesheet">
+      <style type="text/css"> #map {height: 100%; position: fixed;  bottom: 0; top: 50px;left: 0; right: 0; z-index: 0;}</style>
+
+      <!-- Javascript autocomplete......................... -->
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+      <!-- end ....Javascript autocomplete......................... -->
+
+       <!-- ........map......... -->
+       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+       <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+       <script src="leaflet.draw.js" ></script>
+       <script src="js_6.js" ></script>
+
+      <title> 1 </title>
+
+  </head>
+
+  <body class="test1">
+
+        <!-- to menu bar     -->
+        <!-- Fixed navbar -->
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Unlock Places</a>
+                </div>
+                  <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="file:///media/nikos/THINKWHERE/Dissertation/personas_javascript/javascript/bootstrap-3.1.1-dist/layout_28.6.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                     <li><a href="http://www.ed.ac.uk/schools-departments/geosciences/people?cw_xml=person.html&indv=3848">Contact</a></li>
+
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!--/.nav-collapse -->
+              </div>
+            </div>
+
+
+<div id="map"></div> <!-- =========================== The map=========================-->
+
+
+
+<!-- ======================First Row================ -->
+
+  <div class="row ">
+<!-- =================The First Button ================ -->
+    <div class="col-md-4 padding ">
+        <button type="button" class="btn btn-danger btn-lg buttonG"  onclick="$('.firstTab').toggle()">Find a place</button>
+        <!-- the hidden first tab  -->
+        <div class="firstTab"  style='display:none'>
+              <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Search by location, coordinates or postcode</div>
+                <div class="panel-body">
+
+             <!-- ....................1......................... -->
+                        <div class="ui-widget">
+                        <table>
+                         <tr >
+                                 <td >
+                                    <label for="country">Country: </label>
+                                    <input id="country" placeholder="e.g. United Kingdom" autocomplete="off">
+                                 </td>
+                                 <td>
+                                    <label for="location"> &nbsp; Location: </label>
+                                    <input id="location"  placeholder="e.g. Edinburgh" autocomplete="off">
+                                 </td>
+                          </tr>
+                        </div>
+           <!-- .....................2......................... -->
+                        <div class="ui-widget">
+                         <tr>
+                               <td>
+                                  <br>
+                                  <p style='color:grey'>  <i> &nbsp;OR </i></p>
+                                    <label for="coordinates">Coordinates: </label>
+                                    <input type="text" id="coordinates" style="width:100px" placeholder=" Latitude, Longitude " autocomplete="off" />
+                                </td>
+                        </tr>
+                        </div>
+          <!-- .......................3........................... -->
+                        <div class="ui-widget">
+                        <tr>
+                               <td>
+                                   <br>
+                                   <p style='color:grey'>  <i> &nbsp;OR </i></p>
+                                  <label for="postcode">Postcode: </label>
+                                  <input id="postcode"  placeholder="e.g. EH8 9YL" autocomplete="off">
+                             </td>
+                        </tr>
+                    </table>
+                    </div>
+
+                </div>
+              </div>
+        </div>
+
+
+       <!-- ================Second Row============== -->
+       <div class="row ">
+       <!--=================The Second Button ================ -->
+        <div class="col-md-12  ">
+              <button type="button" class="btn btn-warning btn-lg"  onclick="$('.secondTab').toggle()">Find a feature </button>
+              <!-- the hidden second tab  -->
+              <div class="secondTab"  style='display:none'>
+                    <div class="panel panel-default">
+                      <!-- Default panel contents -->
+                      <div class="panel-heading">Search by feature type i) in a location or ii) draw boundaries</div>
+                      <div class="panel-body">
+
+                              <!--........................1............................. -->
+                              <div class="ui-widget">
+
+                              <table>
+                                <tr align="left">
+                                  <td style=" vertical-align:top ; padding-right: 10px" >
+                                      <label for="featuretype">Feature Type: </label>
+                                      <input id="featuretype" placeholder="e.g.rivers, airport " autocomplete="off">
+                                  </td>
+                                  <td>
+                                      <label for="location2">Location: </label>
+                                      <input id="location2"  placeholder="e.g. Edinburgh" autocomplete="off">
+                                      <br>
+                                      <br>
+                                <!--........................1a.............................. -->
+                                      <p style='color:grey'>  <i> &nbsp;OR </i> </p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                   <img src="loading1.gif" class="loader1" align="right" style="display:none; height:40px; width:40px " />
+                                  </td>
+                                 <!--........................1b............................. -->
+                                  <td>
+                                    <button id="draw_rectangle" class="btn btn-rect"> <img src="rectangular.png"> Draw rectangle </button>
+                                  </td>
+                                </tr>
+                              </table>
+
+                              </div>
+
+                      </div>
+                    </div>
+
+              </div>
+        </div> <!-- ===========End====The Second Button ===================== -->
+
+      </div> <!-- =============End====The Second Row ======================== -->
+
+ <!-- ====================================Third Row========================== -->
+               <!-- ======================Third Button======================= -->
+
+       <div class="row ">
+       <div class="col-md-12  ">
+             <button type="button" class="btn btn-success btn-lg buttonG"  onclick="$('.thirdTab').toggle()">Buffering </button>
+             <!-- the hidden second tab  -->
+             <div class="thirdTab"  style='display:none'>
+                   <div class="panel panel-default">
+                     <!-- Default panel contents -->
+                     <div class="panel-heading">Search a feature within specific distance from a location</div>
+                     <div class="panel-body">
+
+                     </div>
+                   </div>
+
+             </div>
+
+      </div>  <!-- ============End====The Third Button ================ -->
+      </div> <!-- =============End====The Third Row ================== -->
+
+  </div> <!-- =================End====The First Button ================ -->
+
+
+<!-- =================Right part- results ================ -->
+<!-- ..........right bar- search results -->
+    <div class="col-md-1  col-md-offset-5  " >
+
+          <div class="box">
+              <button type="button" class="btn btn-default btn-block" onclick="$('.metadataBox').toggle()">
+              <span class="glyphicon glyphicon-search"></span> <br> Search <br> Results
+              </button>
+
+          </div>
+
+   </div>
+
+<!-- ..........metadata right bar- search results -->
+    <div class="col-md-2 nopadding  ">
+    <div class="metadataBox" style='display:none'>
+        <div class="panel panel-warning">
+        <div class="panel-heading">
+          Search results
+          <span id='showAllLayers' class='glyphicon glyphicon-eye-open'>Show all</span>
+        </div>
+           <!-- <div class="panel-body">
+           mpla mpla mpla
+           </div> -->
+           <table class="table" id="search_results">
+          </table>
+       </div>
+    </div>
+    </div>
+
+
+
+</div> <!-- ================End of first Row============== -->
+
+</body>
+</html>
+
+
+
+
+
+        <!-- http://leafletjs.com/examples/quick-start.html -->
+        <!-- Include Leaflet CSS file in the head section of your document: -->
+
+
+
