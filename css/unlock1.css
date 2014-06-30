@@ -1,0 +1,51 @@
+body.backimg{
+	padding-top:100px; 
+	background-image:url('../mapbackground.png');
+	background-repeat:no-repeat;
+	background-position:center; 
+	background-size:90% 
+	; }
+
+body.test1{
+		padding-top:70px;  
+		; }	
+
+.jumbotron h2 {margin-top: 0px}
+
+/*to box result aristera*/
+.box {display:block; width:78px; height: 600px; background-color: grey;  }
+
+
+.padding {
+   padding-left: 25px !important;
+   margin: 0px !important;
+}
+
+.nopadding {
+   padding: 0px !important;
+   margin: 0 !important;
+}
+
+.ui-widget {font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 72.5%    !important;}
+
+.buttonG {width:145px; text-align: left;}
+
+
+/*gia to zoom icon*/
+.leaflet-right .leaflet-control {
+    margin-right: 320px !important;
+    margin-top:500px !important;
+    position: arelative !important;
+}
+/*to koumpi draw rectangular */
+.btn-rect {color:black;}
+
+/*.firstTab {border-style:solid; border-width:5px; border-color: grey }*/
+
+/*.textLayout1 {text-align:justify;}*/
+
+/*#map { height: 100%; width: 100%; z-index: 0;}*/
+/*html, body, #map {
+            height: 100%; position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;
+        }*/
