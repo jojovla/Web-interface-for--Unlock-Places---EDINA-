@@ -9,11 +9,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="">
       <meta name="author" content="">
-      <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
       <link href="css/leaflet.draw.css" rel="stylesheet">
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/unlock1.css" rel="stylesheet">
-      <style type="text/css"> #map {height: 100%; position: fixed;  bottom: 0; top: 50px;left: 0; right: 0; z-index: 0;}</style>
+      <style type="text/css"> #map {height: 100%; position: fixed;  bottom: 0; top: 0px;left: 0; right: 0; z-index: 0;}</style>
 
       <!-- Javascript autocomplete......................... -->
 
@@ -25,8 +24,10 @@
        <!-- ........map......... -->
        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-       <script src="leaflet.draw.js" ></script>
-       <script src="js_6.js" ></script>
+       <script src="js/leaflet.draw.js" ></script>
+       <script src="js/bootstrap.min.js" ></script>
+       <script src="js_8.js" ></script>
+
 
       <title> 1 </title>
 
@@ -36,8 +37,10 @@
 
         <!-- to menu bar     -->
         <!-- Fixed navbar -->
-            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#2E2E2E" >
+            <!-- <img src="unlocklogo.jpg" class="navbar-brand"> -->
               <div class="container">
+
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -45,11 +48,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Unlock Places</a>
+                  <div class="navbar-brand"> <href="layout_28.6.html"> Unlock Places </div>
                 </div>
                   <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="file:///media/nikos/THINKWHERE/Dissertation/personas_javascript/javascript/bootstrap-3.1.1-dist/layout_28.6.html">Home</a></li>
+                    <ul class="nav navbar-nav">  
                     <li><a href="about.html">About</a></li>
                     <li><a href="#examples">Examples</a></li>
                      <li><a href="http://www.ed.ac.uk/schools-departments/geosciences/people?cw_xml=person.html&indv=3848">Contact</a></li>
@@ -71,7 +73,7 @@
   <div class="row ">
 <!-- =================The First Button ================ -->
     <div class="col-md-4 padding ">
-        <button type="button" class="btn btn-danger btn-lg buttonG"  onclick="$('.firstTab').toggle()">Find a place</button>
+        <button type="button" class="btn btn-danger btn-lg buttonG button-padding shadow"   onclick="$('.firstTab').toggle()">Find a place</button>
         <!-- the hidden first tab  -->
         <div class="firstTab"  style='display:none'>
               <div class="panel panel-default">
@@ -84,13 +86,23 @@
                         <table>
                          <tr >
                                  <td >
-                                    <label for="country">Country: </label>
-                                    <input id="country" placeholder="e.g. United Kingdom" autocomplete="off">
+                                    <label for="country">Country: &nbsp; </label>
+                                    <input id="country" placeholder="e.g. United Kingdom" autocomplete="off">,
                                  </td>
                                  <td>
+                                    <div id='ordnance-data' style='display:none'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<input id="ordnance" type='checkbox'>
+                                    <label for="ordnance"> &nbsp;  <u> Ordnance Survey data only</u></label>
+                                    </div>
+
                                     <label for="location"> &nbsp; Location: </label>
                                     <input id="location"  placeholder="e.g. Edinburgh" autocomplete="off">
                                  </td>
+
+                                 <td>
+                                  <img src="loading1.gif" class="loader0" align="right" style="display:none; height:40px; width:40px " />
+                                 </td>
+
                           </tr>
                         </div>
            <!-- .....................2......................... -->
@@ -126,7 +138,7 @@
        <div class="row ">
        <!--=================The Second Button ================ -->
         <div class="col-md-12  ">
-              <button type="button" class="btn btn-warning btn-lg"  onclick="$('.secondTab').toggle()">Find a feature </button>
+              <button type="button" class="btn btn-warning btn-lg button-padding shadow"   onclick="$('.secondTab').toggle()">Find a feature </button>
               <!-- the hidden second tab  -->
               <div class="secondTab"  style='display:none'>
                     <div class="panel panel-default">
@@ -134,7 +146,7 @@
                       <div class="panel-heading">Search by feature type i) in a location or ii) draw boundaries</div>
                       <div class="panel-body">
 
-                              <!--........................1............................. -->
+                              <!--..................................................... -->
                               <div class="ui-widget">
 
                               <table>
@@ -148,17 +160,17 @@
                                       <input id="location2"  placeholder="e.g. Edinburgh" autocomplete="off">
                                       <br>
                                       <br>
-                                <!--........................1a.............................. -->
                                       <p style='color:grey'>  <i> &nbsp;OR </i> </p>
                                   </td>
                                 </tr>
+                                <!--...................................................... -->
                                 <tr>
                                   <td>
                                    <img src="loading1.gif" class="loader1" align="right" style="display:none; height:40px; width:40px " />
                                   </td>
-                                 <!--........................1b............................. -->
+                                 <!--..................................................... -->
                                   <td>
-                                    <button id="draw_rectangle" class="btn btn-rect"> <img src="rectangular.png"> Draw rectangle </button>
+                                    <button id="draw_rectangle" class="btn btn-rect" data-toggle="button"> <img src="rectangle.png"> Draw rectangle </button>
                                   </td>
                                 </tr>
                               </table>
@@ -174,17 +186,81 @@
       </div> <!-- =============End====The Second Row ======================== -->
 
  <!-- ====================================Third Row========================== -->
-               <!-- ======================Third Button======================= -->
+
+       <!-- ============================Third Button======================= -->
 
        <div class="row ">
        <div class="col-md-12  ">
-             <button type="button" class="btn btn-success btn-lg buttonG"  onclick="$('.thirdTab').toggle()">Buffering </button>
+             <button type="button" class="btn btn-success btn-lg buttonG button-padding shadow"  onclick="$('.thirdTab').toggle()">Buffering </button>
              <!-- the hidden second tab  -->
              <div class="thirdTab"  style='display:none'>
                    <div class="panel panel-default">
                      <!-- Default panel contents -->
                      <div class="panel-heading">Search a feature within specific distance from a location</div>
                      <div class="panel-body">
+
+
+                       <!--..................................................... -->
+                              <div class="ui-widget">
+
+                              <table>
+                                <tr align="left">
+                                  <td >
+                                      <label for="featuretype">Feature Type: </label>
+                                      <input id="featuretype3" placeholder="e.g.rivers, airport " autocomplete="off">
+                                      <br>
+                                      <br>
+                                  </td>
+                                </tr>
+                        <!--..................................................... -->
+                                <tr>
+                                  <td>
+                                  <br>
+                                    <p><b>Operation</p>
+                                    <input type="radio" name="operation" id="operation_within" value="within" /> <label for="operation_within"><span style='color:grey'>Within</span></label><br>
+                                    <input type="radio" name="operation" id="operation_intersect" value="intersect" /> <label for="operation_intersect"><span style='color:grey'>Intersect</span></label>
+                                    <br>
+                                    <br>
+                                  </td>
+                                </tr>
+
+                      <!--..................................................... -->
+                                <tr>
+                                  <td>
+                                     <br>
+                                      <p>
+                                      <label for="amount">Distance (metres):</label>
+                                      <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                      </p>
+                                      <div id="slider-range-min"></div>
+                                      <br>
+                                      <br>
+                                  </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td style="width:150px">
+                                        <label for="location3" style="width:100px">Location: </label>
+                                        <input id="location3"  placeholder="e.g. Edinburgh" autocomplete="off">
+                                        <br>
+                                        <br>
+                                        <td>
+                                        <p style='color:grey'>  <i> &nbsp;OR &nbsp;&nbsp;</i> </p>
+                                        </td>
+                                    </td>
+
+                                    <td>
+
+                                        <img src="loading1.gif" class="loader2" align="right" style="display:none; height:40px; width:40px " />
+
+                                        <button id="draw_rectangle3" class="btn btn-rect" data-toggle="button"> <img src="rectangle.png" > Draw rectangle </button>
+                                    </td>
+                                </tr>
+
+                              </table>
+
+                              </div>
 
                      </div>
                    </div>
@@ -197,30 +273,32 @@
   </div> <!-- =================End====The First Button ================ -->
 
 
-<!-- =================Right part- results ================ -->
-<!-- ..........right bar- search results -->
-    <div class="col-md-1  col-md-offset-5  " >
+<!-- ========================Alert button================================ -->
+<!-- <div class="row "> -->
+<div class="col-md-3   " >
+  <div class="bs-example">
+    <div class="alert alert-warning fade in" role="alert"  style='display:none'>
+      <button type="button" class="close" ><span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span></button>
+      <strong>Data not found!</strong> <br>No results found in that area
+    </div>
+  </div>
+</div>
 
-          <div class="box">
-              <button type="button" class="btn btn-default btn-block" onclick="$('.metadataBox').toggle()">
-              <span class="glyphicon glyphicon-search"></span> <br> Search <br> Results
-              </button>
 
-          </div>
 
-   </div>
+<!-- ==============================Metadata panel- .==============================-->
+    <div class="col-md-3 col-md-offset-2 " style="padding-left:0px">
+    <div class="metadataBox" style="display:'none'">
 
-<!-- ..........metadata right bar- search results -->
-    <div class="col-md-2 nopadding  ">
-    <div class="metadataBox" style='display:none'>
-        <div class="panel panel-warning">
-        <div class="panel-heading">
-          Search results
-          <span id='showAllLayers' class='glyphicon glyphicon-eye-open'>Show all</span>
+        <div class="panel shadow" style="width:260px; border-style:none; background-color:#F2EFE4 ">
+        
+        <div class="panel-heading shadow" style="background-color:#998575; ">
+            <button type="button" class="btn btn-default shadow" style="background-color:#FBFBEF; opacity:0.7" onclick="$('.table').toggle()"  >Search results</button>  &nbsp; &nbsp;&nbsp; &nbsp;
+            <span id='showAllLayers' class='glyphicon glyphicon-eye-open' style="cursor: pointer; "> </span> 
+            <span class="fonts" >Show all</span>
         </div>
-           <!-- <div class="panel-body">
-           mpla mpla mpla
-           </div> -->
+
            <table class="table" id="search_results">
           </table>
        </div>
@@ -228,9 +306,13 @@
     </div>
 
 
-
-</div> <!-- ================End of first Row============== -->
-
+<!-- ===============================current coordinates========================================== -->
+    <div class="col-md-2 current-coord" > 
+        <div>Cursor Position: <span id='currentCoordinates'>Move cursor on map</span> </div>
+    </div>
+ 
+<!-- </div> --> <!-- ================End of first Row============== -->
+</div>
 </body>
 </html>
 
@@ -240,6 +322,3 @@
 
         <!-- http://leafletjs.com/examples/quick-start.html -->
         <!-- Include Leaflet CSS file in the head section of your document: -->
-
-
-

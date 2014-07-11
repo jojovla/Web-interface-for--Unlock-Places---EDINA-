@@ -34,18 +34,72 @@ body.test1{
 
 /*gia to zoom icon*/
 .leaflet-right .leaflet-control {
-    margin-right: 320px !important;
+	/*font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 100%    !important;*/
+ /*   margin-right: 320px !important;
     margin-top:500px !important;
-    position: arelative !important;
+    position: relative !important;*/
+
 }
+/*current cursor coordinates*/
+.current-coord {
+	width:250px; 
+	position:fixed;
+	right:50%;
+	bottom:0;
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 90%; 
+	color: #424242;
+	background-color: #F8FBEF;
+	opacity: 0.8; 
+	text-align: center;
+	border-right-style:solid; 
+	border-right-width:12x;	
+	
+}
+/*The attribution leaflet div */
+.leaflet-container .leaflet-control-attribution {
+	
+	position:relative;
+	margin-right: 68% !important;
+	height: 18px !important ;
+	 
+}
+
+/*the scale bars*/
+.leaflet-left .leaflet-control-scale{
+	
+	position:relative;
+	margin-left: 900px !important;
+
+}
+
 /*to koumpi draw rectangular */
 .btn-rect {color:black;}
 
-/*.firstTab {border-style:solid; border-width:5px; border-color: grey }*/
 
-/*.textLayout1 {text-align:justify;}*/
+.button-padding {
+   margin-bottom: 15px !important;
+   }
 
-/*#map { height: 100%; width: 100%; z-index: 0;}*/
-/*html, body, #map {
-            height: 100%; position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;
-        }*/
+
+ .shadow {
+
+     -moz-box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+     -webkit-box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+      box-shadow:3px 3px 5px rgba(0,0,0,0.3);
+ }  
+
+ .fonts{
+ 	font-family: "Nimbus Sans L Regular" !important;
+	font-size: 100%;
+	color: #F7F2E0;
+
+ }
+/*div base map*/
+ .leaflet-top .leaflet-control{
+ 	
+ 	margin-top: 5% !important ;
+ 	margin-right: 63% !important ;
+
+ }
