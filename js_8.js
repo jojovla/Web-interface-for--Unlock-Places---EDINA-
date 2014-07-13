@@ -327,7 +327,7 @@ $(function () {
     }));
 
 //.................add base maps
-    L.control.layers(baseMaps).addTo(map) ;
+    L.control.layers(baseMaps).setPosition("bottomright").addTo(map) ;
     
 
 //.......... add a feature group as a layer on the map to capture all drawn items
