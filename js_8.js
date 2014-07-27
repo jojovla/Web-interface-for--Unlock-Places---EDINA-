@@ -404,7 +404,7 @@ $(function () {
 var layerIndex = 1;
 function addResultLayer(featureGroup, geoJSONUrl) {
         // add a new layer in the results
-       $("<tr class='result_layer'><td><input type='checkbox' value=1 checked='true'/> &nbsp; Layer "+layerIndex++ +" &emsp;&emsp;&emsp;&emsp;&emsp;<span class='delete glyphicon glyphicon-trash'></span>\
+       $("<tr class='result_layer'><td><input type='checkbox' value=1 checked='true'/> &nbsp; Layer "+layerIndex++ +" &emsp;&emsp;&emsp;&emsp;&emsp;<span class='delete glyphicon glyphicon-trash' style='cursor: pointer'></span>\
         <a href='"+ geoJSONUrl+"' target='_blank'>&nbsp;<small>GeoJSON</small></a></td></tr>").
             appendTo($("#search_results")).
             data("layer", featureGroup)
