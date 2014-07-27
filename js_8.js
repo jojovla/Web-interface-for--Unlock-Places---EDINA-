@@ -1,21 +1,5 @@
 
 
-
-// ==========================================================
- $(function() {
-    $( "#slider-range-min" ).slider({
-      range: "min",
-      value: 0,
-      min: 0,
-      max: 10000,
-      slide: function( event, ui ) {
-        $( "#amount" ).val(  ui.value + "m"  );
-      }
-    });
-    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" ) +"m"  );
-  });
-
-
 //=========================function for the alert box. Handle delete (hide the alert box rather than delete it)
 $(function () {
     $('.alert .close').click(function(){
@@ -609,7 +593,7 @@ $(function () {
             var bounds = e.layer.getBounds();
             $(".loader2").show();
 
-            $.get("http://unlock.edina.ac.uk/ws/search?featureType=" + $("#featuretype3").val() + "&buffer="+ $( "#slider-range-min").slider('value')+
+            $.get("http://unlock.edina.ac.uk/ws/search?featureType=" + $("#featuretype3").val() + "&buffer="+ document.getElementById('amount').value+
                     "&minx=" + bounds.getWest() + "&miny=" + bounds.getSouth() + "&maxx=" + bounds.getEast() + "&maxy=" + bounds.getNorth() + "&format=json&maxRows=999")
                 .success(function (data) {
                     // create variable names to save all the requested resutls
