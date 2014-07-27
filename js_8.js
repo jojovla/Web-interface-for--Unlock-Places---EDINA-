@@ -544,7 +544,7 @@ $(function () {
             $(".loader2").show();
             var operator= $('#operation_intersect').prop('checked') ? 'intersect' : 'within';
 
-                $.get("http://unlock.edina.ac.uk/ws/search?featureType=" + $("#featuretype3").val() + "&buffer="+ $( "#slider-range-min").slider('value')+ "&spatialMask=" + ui.item.id + "&operator=" +operator+"&format=json&maxRows=999")
+                $.get("http://unlock.edina.ac.uk/ws/search?featureType=" + $("#featuretype3").val() + "&buffer="+ document.getElementById('amount').value+ "&spatialMask=" + ui.item.id + "&operator=" +operator+"&format=json&maxRows=999")
                     .success(function (data) {
                         // create variable names to save all the requested resutls
                         var alldata1 = JSON.parse(data);
