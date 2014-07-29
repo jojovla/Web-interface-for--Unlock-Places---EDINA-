@@ -152,7 +152,7 @@ $(function () {
                 var marker = L.marker([coordinates[0], coordinates[1]]).addTo(map);
                 map.setView(marker.getLatLng(), 6);
                 marker.bindPopup("Coordinates: <br><small><i>Latitude: " + L.Util.formatNum(coordinates[0],4) + "<br> Longitude: " + L.Util.formatNum(coordinates[1],4) + "</i></small>").openPopup();
-                addResultLayer(marker, 'data:application/json;charset=UTF-8,' + encodeURIComponent(marker.toGeoJSON().toSource()));
+                addResultLayer(marker, 'data:application/json;charset=UTF-8,' + encodeURIComponent(JSON.stringify(marker.toGeoJSON())));
             }
         })
     })
